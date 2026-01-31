@@ -62,7 +62,7 @@ func handleChat(w http.ResponseWriter, r *http.Request) {
 	fmt.Printf("📝 User asked: %s\n", req.Prompt)
 
 	// 3. Groq Configuration
-	apiKey := os.Getenv("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")
+	apiKey := os.Getenv("GROQ_API_KEY")
 	if apiKey == "" {
 		http.Error(w, "Server Misconfiguration: Missing API Key", http.StatusInternalServerError)
 		return
@@ -108,4 +108,5 @@ func handleChat(w http.ResponseWriter, r *http.Request) {
 	})
 	fmt.Println("✅ Response sent successfully!")
 }
+
 
