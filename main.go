@@ -22,6 +22,9 @@ type ChatResponse struct {
 }
 
 func main() {
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintf(w, "Hello! The Backend is running successfully. 🚀")
+	})
 	http.HandleFunc("/ask", handleChat)
 
 	port := os.Getenv("PORT")
@@ -108,5 +111,3 @@ func handleChat(w http.ResponseWriter, r *http.Request) {
 	})
 	fmt.Println("✅ Response sent successfully!")
 }
-
-
